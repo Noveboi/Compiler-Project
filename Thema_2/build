@@ -1,0 +1,16 @@
+SOURCE=$(ls | grep -E ^.+\.c$)
+EXENAME="parser"
+if [ -z "$1" ]; then ARG='n'; else ARG='d'; fi
+if [ $ARG = 'd' ] #specify d as arg to add debug symbols for GDB.
+then #build with debug symbols for GDB
+	gcc -o $EXENAME $SOURCE -g
+else
+	gcc -o $EXENAME $SOURCE
+fi
+
+for file in $SOURCE
+do
+	echo "Built $file"
+done
+
+echo "Executable $EXENAME produced ($(wc $EXENAME -c | grep -E ^[0-9]+ -o) bytes)"

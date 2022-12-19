@@ -1,0 +1,6 @@
+flex patterns.l
+echo "created lex.yy.c"
+gcc -o lexer *.c
+echo "compiled c files"
+echo "running program..."
+./lexer

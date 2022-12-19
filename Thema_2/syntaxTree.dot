@@ -1,0 +1,668 @@
+strict graph ST {
+
+// G -> (M)
+	A0 -- b0;
+	b0 [label="("];
+	b0 [color=red];
+	A0 -- C0;
+	C0 [label="M"];
+	A0 -- d0;
+	d0 [label=")"];
+	d0 [color=red];
+	A0 [label="G"];
+
+// M -> YZ
+	C0 -- E0;
+	E0 [label="Y"];
+	C0 -- F0;
+	F0 [label="Z"];
+	C0 [label="M"];
+
+// Y -> G
+	E0 -- G0;
+	G0 [label="G"];
+	E0 [label="Y"];
+
+// G -> (M)
+	G0 -- h0;
+	h0 [label="("];
+	h0 [color=red];
+	G0 -- I0;
+	I0 [label="M"];
+	G0 -- j0;
+	j0 [label=")"];
+	j0 [color=red];
+	G0 [label="G"];
+
+// M -> YZ
+	I0 -- K0;
+	K0 [label="Y"];
+	I0 -- L0;
+	L0 [label="Z"];
+	I0 [label="M"];
+
+// Y -> G
+	K0 -- M0;
+	M0 [label="G"];
+	K0 [label="Y"];
+
+// G -> (M)
+	M0 -- n0;
+	n0 [label="("];
+	n0 [color=red];
+	M0 -- O0;
+	O0 [label="M"];
+	M0 -- p0;
+	p0 [label=")"];
+	p0 [color=red];
+	M0 [label="G"];
+
+// M -> YZ
+	O0 -- Q0;
+	Q0 [label="Y"];
+	O0 -- R0;
+	R0 [label="Z"];
+	O0 [label="M"];
+
+// Y -> G
+	Q0 -- S0;
+	S0 [label="G"];
+	Q0 [label="Y"];
+
+// G -> (M)
+	S0 -- t0;
+	t0 [label="("];
+	t0 [color=red];
+	S0 -- U0;
+	U0 [label="M"];
+	S0 -- v0;
+	v0 [label=")"];
+	v0 [color=red];
+	S0 [label="G"];
+
+// M -> YZ
+	U0 -- W0;
+	W0 [label="Y"];
+	U0 -- X0;
+	X0 [label="Z"];
+	U0 [label="M"];
+
+// Y -> a
+	W0 -- y0;
+	y0 [label="a"];
+	y0 [color=red];
+	W0 [label="Y"];
+
+// Z -> +M
+	X0 -- z0;
+	z0 [label="+"];
+	z0 [color=red];
+	X0 -- A1;
+	A1 [label="M"];
+	X0 [label="Z"];
+
+// M -> YZ
+	A1 -- B1;
+	B1 [label="Y"];
+	A1 -- C1;
+	C1 [label="Z"];
+	A1 [label="M"];
+
+// Y -> b
+	B1 -- d1;
+	d1 [label="b"];
+	d1 [color=red];
+	B1 [label="Y"];
+
+// Z -> ε
+
+// Z -> *M
+	L0 -- e1;
+	e1 [label="*"];
+	e1 [color=red];
+	L0 -- F1;
+	F1 [label="M"];
+	L0 [label="Z"];
+
+// M -> YZ
+	F1 -- G1;
+	G1 [label="Y"];
+	F1 -- H1;
+	H1 [label="Z"];
+	F1 [label="M"];
+
+// Y -> G
+	G1 -- I1;
+	I1 [label="G"];
+	G1 [label="Y"];
+
+// G -> (M)
+	I1 -- j1;
+	j1 [label="("];
+	j1 [color=red];
+	I1 -- K1;
+	K1 [label="M"];
+	I1 -- l1;
+	l1 [label=")"];
+	l1 [color=red];
+	I1 [label="G"];
+
+// M -> YZ
+	K1 -- M1;
+	M1 [label="Y"];
+	K1 -- N1;
+	N1 [label="Z"];
+	K1 [label="M"];
+
+// Y -> a
+	M1 -- o1;
+	o1 [label="a"];
+	o1 [color=red];
+	M1 [label="Y"];
+
+// Z -> -M
+	N1 -- p1;
+	p1 [label="-"];
+	p1 [color=red];
+	N1 -- Q1;
+	Q1 [label="M"];
+	N1 [label="Z"];
+
+// M -> YZ
+	Q1 -- R1;
+	R1 [label="Y"];
+	Q1 -- S1;
+	S1 [label="Z"];
+	Q1 [label="M"];
+
+// Y -> b
+	R1 -- t1;
+	t1 [label="b"];
+	t1 [color=red];
+	R1 [label="Y"];
+
+// Z -> ε
+
+// Z -> ε
+
+// Z -> +M
+	F0 -- u1;
+	u1 [label="+"];
+	u1 [color=red];
+	F0 -- V1;
+	V1 [label="M"];
+	F0 [label="Z"];
+
+// M -> YZ
+	V1 -- W1;
+	W1 [label="Y"];
+	V1 -- X1;
+	X1 [label="Z"];
+	V1 [label="M"];
+
+// Y -> G
+	W1 -- Y1;
+	Y1 [label="G"];
+	W1 [label="Y"];
+
+// G -> (M)
+	Y1 -- z1;
+	z1 [label="("];
+	z1 [color=red];
+	Y1 -- A2;
+	A2 [label="M"];
+	Y1 -- b2;
+	b2 [label=")"];
+	b2 [color=red];
+	Y1 [label="G"];
+
+// M -> YZ
+	A2 -- C2;
+	C2 [label="Y"];
+	A2 -- D2;
+	D2 [label="Z"];
+	A2 [label="M"];
+
+// Y -> G
+	C2 -- E2;
+	E2 [label="G"];
+	C2 [label="Y"];
+
+// G -> (M)
+	E2 -- f2;
+	f2 [label="("];
+	f2 [color=red];
+	E2 -- G2;
+	G2 [label="M"];
+	E2 -- h2;
+	h2 [label=")"];
+	h2 [color=red];
+	E2 [label="G"];
+
+// M -> YZ
+	G2 -- I2;
+	I2 [label="Y"];
+	G2 -- J2;
+	J2 [label="Z"];
+	G2 [label="M"];
+
+// Y -> a
+	I2 -- k2;
+	k2 [label="a"];
+	k2 [color=red];
+	I2 [label="Y"];
+
+// Z -> +M
+	J2 -- l2;
+	l2 [label="+"];
+	l2 [color=red];
+	J2 -- M2;
+	M2 [label="M"];
+	J2 [label="Z"];
+
+// M -> YZ
+	M2 -- N2;
+	N2 [label="Y"];
+	M2 -- O2;
+	O2 [label="Z"];
+	M2 [label="M"];
+
+// Y -> b
+	N2 -- p2;
+	p2 [label="b"];
+	p2 [color=red];
+	N2 [label="Y"];
+
+// Z -> ε
+
+// Z -> *M
+	X1 -- q2;
+	q2 [label="*"];
+	q2 [color=red];
+	X1 -- R2;
+	R2 [label="M"];
+	X1 [label="Z"];
+
+// M -> YZ
+	R2 -- S2;
+	S2 [label="Y"];
+	R2 -- T2;
+	T2 [label="Z"];
+	R2 [label="M"];
+
+// Y -> G
+	S2 -- U2;
+	U2 [label="G"];
+	S2 [label="Y"];
+
+// G -> (M)
+	U2 -- v2;
+	v2 [label="("];
+	v2 [color=red];
+	U2 -- W2;
+	W2 [label="M"];
+	U2 -- x2;
+	x2 [label=")"];
+	x2 [color=red];
+	U2 [label="G"];
+
+// M -> YZ
+	W2 -- Y2;
+	Y2 [label="Y"];
+	W2 -- Z2;
+	Z2 [label="Z"];
+	W2 [label="M"];
+
+// Y -> a
+	Y2 -- a3;
+	a3 [label="a"];
+	a3 [color=red];
+	Y2 [label="Y"];
+
+// Z -> -M
+	Z2 -- b3;
+	b3 [label="-"];
+	b3 [color=red];
+	Z2 -- C3;
+	C3 [label="M"];
+	Z2 [label="Z"];
+
+// M -> YZ
+	C3 -- D3;
+	D3 [label="Y"];
+	C3 -- E3;
+	E3 [label="Z"];
+	C3 [label="M"];
+
+// Y -> b
+	D3 -- f3;
+	f3 [label="b"];
+	f3 [color=red];
+	D3 [label="Y"];
+
+// Z -> ε
+
+// Z -> ε
+
+// Z -> -M
+	H1 -- g3;
+	g3 [label="-"];
+	g3 [color=red];
+	H1 -- H3;
+	H3 [label="M"];
+	H1 [label="Z"];
+
+// M -> YZ
+	H3 -- I3;
+	I3 [label="Y"];
+	H3 -- J3;
+	J3 [label="Z"];
+	H3 [label="M"];
+
+// Y -> G
+	I3 -- K3;
+	K3 [label="G"];
+	I3 [label="Y"];
+
+// G -> (M)
+	K3 -- l3;
+	l3 [label="("];
+	l3 [color=red];
+	K3 -- M3;
+	M3 [label="M"];
+	K3 -- n3;
+	n3 [label=")"];
+	n3 [color=red];
+	K3 [label="G"];
+
+// M -> YZ
+	M3 -- O3;
+	O3 [label="Y"];
+	M3 -- P3;
+	P3 [label="Z"];
+	M3 [label="M"];
+
+// Y -> G
+	O3 -- Q3;
+	Q3 [label="G"];
+	O3 [label="Y"];
+
+// G -> (M)
+	Q3 -- r3;
+	r3 [label="("];
+	r3 [color=red];
+	Q3 -- S3;
+	S3 [label="M"];
+	Q3 -- t3;
+	t3 [label=")"];
+	t3 [color=red];
+	Q3 [label="G"];
+
+// M -> YZ
+	S3 -- U3;
+	U3 [label="Y"];
+	S3 -- V3;
+	V3 [label="Z"];
+	S3 [label="M"];
+
+// Y -> a
+	U3 -- w3;
+	w3 [label="a"];
+	w3 [color=red];
+	U3 [label="Y"];
+
+// Z -> +M
+	V3 -- x3;
+	x3 [label="+"];
+	x3 [color=red];
+	V3 -- Y3;
+	Y3 [label="M"];
+	V3 [label="Z"];
+
+// M -> YZ
+	Y3 -- Z3;
+	Z3 [label="Y"];
+	Y3 -- A4;
+	A4 [label="Z"];
+	Y3 [label="M"];
+
+// Y -> b
+	Z3 -- b4;
+	b4 [label="b"];
+	b4 [color=red];
+	Z3 [label="Y"];
+
+// Z -> ε
+
+// Z -> *M
+	J3 -- c4;
+	c4 [label="*"];
+	c4 [color=red];
+	J3 -- D4;
+	D4 [label="M"];
+	J3 [label="Z"];
+
+// M -> YZ
+	D4 -- E4;
+	E4 [label="Y"];
+	D4 -- F4;
+	F4 [label="Z"];
+	D4 [label="M"];
+
+// Y -> G
+	E4 -- G4;
+	G4 [label="G"];
+	E4 [label="Y"];
+
+// G -> (M)
+	G4 -- h4;
+	h4 [label="("];
+	h4 [color=red];
+	G4 -- I4;
+	I4 [label="M"];
+	G4 -- j4;
+	j4 [label=")"];
+	j4 [color=red];
+	G4 [label="G"];
+
+// M -> YZ
+	I4 -- K4;
+	K4 [label="Y"];
+	I4 -- L4;
+	L4 [label="Z"];
+	I4 [label="M"];
+
+// Y -> a
+	K4 -- m4;
+	m4 [label="a"];
+	m4 [color=red];
+	K4 [label="Y"];
+
+// Z -> -M
+	L4 -- n4;
+	n4 [label="-"];
+	n4 [color=red];
+	L4 -- O4;
+	O4 [label="M"];
+	L4 [label="Z"];
+
+// M -> YZ
+	O4 -- P4;
+	P4 [label="Y"];
+	O4 -- Q4;
+	Q4 [label="Z"];
+	O4 [label="M"];
+
+// Y -> b
+	P4 -- r4;
+	r4 [label="b"];
+	r4 [color=red];
+	P4 [label="Y"];
+
+// Z -> ε
+
+// Z -> ε
+
+// Z -> +M
+	T2 -- s4;
+	s4 [label="+"];
+	s4 [color=red];
+	T2 -- T4;
+	T4 [label="M"];
+	T2 [label="Z"];
+
+// M -> YZ
+	T4 -- U4;
+	U4 [label="Y"];
+	T4 -- V4;
+	V4 [label="Z"];
+	T4 [label="M"];
+
+// Y -> G
+	U4 -- W4;
+	W4 [label="G"];
+	U4 [label="Y"];
+
+// G -> (M)
+	W4 -- x4;
+	x4 [label="("];
+	x4 [color=red];
+	W4 -- Y4;
+	Y4 [label="M"];
+	W4 -- z4;
+	z4 [label=")"];
+	z4 [color=red];
+	W4 [label="G"];
+
+// M -> YZ
+	Y4 -- A5;
+	A5 [label="Y"];
+	Y4 -- B5;
+	B5 [label="Z"];
+	Y4 [label="M"];
+
+// Y -> G
+	A5 -- C5;
+	C5 [label="G"];
+	A5 [label="Y"];
+
+// G -> (M)
+	C5 -- d5;
+	d5 [label="("];
+	d5 [color=red];
+	C5 -- E5;
+	E5 [label="M"];
+	C5 -- f5;
+	f5 [label=")"];
+	f5 [color=red];
+	C5 [label="G"];
+
+// M -> YZ
+	E5 -- G5;
+	G5 [label="Y"];
+	E5 -- H5;
+	H5 [label="Z"];
+	E5 [label="M"];
+
+// Y -> a
+	G5 -- i5;
+	i5 [label="a"];
+	i5 [color=red];
+	G5 [label="Y"];
+
+// Z -> +M
+	H5 -- j5;
+	j5 [label="+"];
+	j5 [color=red];
+	H5 -- K5;
+	K5 [label="M"];
+	H5 [label="Z"];
+
+// M -> YZ
+	K5 -- L5;
+	L5 [label="Y"];
+	K5 -- M5;
+	M5 [label="Z"];
+	K5 [label="M"];
+
+// Y -> b
+	L5 -- n5;
+	n5 [label="b"];
+	n5 [color=red];
+	L5 [label="Y"];
+
+// Z -> ε
+
+// Z -> *M
+	V4 -- o5;
+	o5 [label="*"];
+	o5 [color=red];
+	V4 -- P5;
+	P5 [label="M"];
+	V4 [label="Z"];
+
+// M -> YZ
+	P5 -- Q5;
+	Q5 [label="Y"];
+	P5 -- R5;
+	R5 [label="Z"];
+	P5 [label="M"];
+
+// Y -> G
+	Q5 -- S5;
+	S5 [label="G"];
+	Q5 [label="Y"];
+
+// G -> (M)
+	S5 -- t5;
+	t5 [label="("];
+	t5 [color=red];
+	S5 -- U5;
+	U5 [label="M"];
+	S5 -- v5;
+	v5 [label=")"];
+	v5 [color=red];
+	S5 [label="G"];
+
+// M -> YZ
+	U5 -- W5;
+	W5 [label="Y"];
+	U5 -- X5;
+	X5 [label="Z"];
+	U5 [label="M"];
+
+// Y -> a
+	W5 -- y5;
+	y5 [label="a"];
+	y5 [color=red];
+	W5 [label="Y"];
+
+// Z -> -M
+	X5 -- z5;
+	z5 [label="-"];
+	z5 [color=red];
+	X5 -- A6;
+	A6 [label="M"];
+	X5 [label="Z"];
+
+// M -> YZ
+	A6 -- B6;
+	B6 [label="Y"];
+	A6 -- C6;
+	C6 [label="Z"];
+	A6 [label="M"];
+
+// Y -> b
+	B6 -- d6;
+	d6 [label="b"];
+	d6 [color=red];
+	B6 [label="Y"];
+
+// Z -> ε
+
+// Z -> ε
+
+// Z -> ε
+
+// Z -> ε
+}
