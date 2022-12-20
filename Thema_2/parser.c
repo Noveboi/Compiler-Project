@@ -140,7 +140,7 @@ int main(int argc, char*argv[]) {
     }
 
     /* Pre-Processing */
-    char* symbolMap[strlen(nonterminals)];
+    char* symbolMap[2];
     symbolMap[0] = nonterminals;
     symbolMap[1] = terminals;
     struct Stack* symStack = createStack(SYMBOL_STACK_MAXSIZE);
@@ -148,18 +148,24 @@ int main(int argc, char*argv[]) {
     struct SyntaxTable* stable = createSyntaxTable(symbolMap,productions);
     fillSyntaxTable(stable);
     printSyntaxTable(stable);
+
     /*
         The queue takes no part in the parsing or any syntax analysis related work.
-        It acts as memory 
+        It acts as memory so that the variables declared in the .dot code are properly re-used and 
+        result in the correct formation of the syntax tree 
     */
     struct Queue* queue = createQueue(MEMORY_QUEUE_MAXSIZE);
-    /* Parsing */
 
-    printf("\nBeggining parsing of string: \"%s\"\n",input);
+/* 
+    Begin Parsing 
+*/
+
+    printf("\nBeginning parsing of string: \"%s\"\n",input);
 
     // 1 - Initialize symbol stack
     push(symStack,'$');
     push(symStack,nonterminals[0]);
+    
     // 2 - Fill input stack with the characters of the input string (backwards)
     for (int i = strlen(input) - 1; i >= 0; i--) {
         push(inputStack,input[i]);
@@ -179,24 +185,24 @@ int main(int argc, char*argv[]) {
         printStack(inputStack);
         printf("\n--------------------------------\n");
 
-        /*
-            I - Terminal symbol is matched from the symbol stack
-                Pop the top element from both the input and symbol stack
-        */
+/*
+    I - Terminal symbol is matched from the symbol stack
+        Pop the top element from both the input and symbol stack
+*/
         if (isTerminal(cursym) == 1 && cursym == curinsym && curinsym != '$') {
             printf("\tMatched terminal: %c\n",cursym);
 
             pop(inputStack);
             pop(symStack);
         }
-        /*
-            II - The terminal symbol "$" is matched from the symbol stack
-                Break from the loop and terminate program
-                
-                Syntax Tree Generation:
-                    Write the finished dotString to a .dot file and execute the dot command
-                    to generate the .png image
-        */
+/*
+    II - The terminal symbol "$" is matched from the symbol stack
+        Break from the loop and terminate program
+        
+        Syntax Tree Generation:
+            Write the finished dotString to a .dot file and execute the dot command
+            to generate the .png image
+*/
         else if (isTerminal(cursym) == 1 && cursym == curinsym && cursym == '$') {
             printf("\tEnd of string hit! Exiting\n");
 
@@ -215,14 +221,12 @@ int main(int argc, char*argv[]) {
             system("dot -Tpng -o syntaxtree.png syntaxTree.dot");
             break;
         }
-        /*
-            III - Non-terminal symbol is matched and the current production being analyzed exists.
-                Syntax Analysis:
-                    Pop the top element from the symbol stack and for each right-hand side symbol,
-                    push it to the symbol stack.
-                Syntax Tree Generation:
-
-        */
+/*
+    III - Non-terminal symbol is matched and the current production being analyzed exists.
+        Syntax Analysis:
+            Pop the top element from the symbol stack and for each right-hand side symbol,
+            push it to the symbol stack.
+*/
         else if (isTerminal(cursym) == 0 && (curprod = mapProductionRule(stable,productionExists(stable,cursym,curinsym))) != 0) {
             printf("\tMatched non-terminal: %c\n",cursym);
 
@@ -346,11 +350,17 @@ int main(int argc, char*argv[]) {
                }
             }
         }
-        
+
+/*
+     IV - Non-terminal symbol is matched and the current production does not exist.
+*/ 
         else if ((curprod = mapProductionRule(stable,productionExists(stable,cursym,curinsym))) == 0) {
             printf("The input string is not matched by this grammar!\n");
             break;
         }
+/*
+    V - Undefined behavior
+*/
         else {
             printf("Strange!\n");
             break;
