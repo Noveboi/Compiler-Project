@@ -29,24 +29,34 @@ int main() {
     printf("Lexing time!\n");
 
     int sToken, pfToken;
-    sToken = yylex();
-    pfToken = yylex();
+    sToken = yylex();	//store the first token (word) recognized by yylex 
+    pfToken = yylex();	//store the second token (word) recognized by yylex
+
+    //break if there exists an unrecognized character
     if(sToken == -1 || pfToken == -1) {
         printf("Unrecognized sentence\n");
         return 1;
     }
+
+    //break if the first token is not a shape token (point,...,octagon)
     else if(sToken < POINT || sToken > OCTAGON) {
         printf("Expected Shape, got %s\n",tokens[sToken]);
         return 2;
     }
+
+    //break if the second token is not a point family token
     else if(pfToken != POINTFAMILY) {
         printf("Expected Point Family, got %s\n",tokens[pfToken]);
         return 3;
     }
+
+    //break if the amount of points given does not equal the points of the given shape
     else if(yyleng != sToken) {
         printf("Mismatch, got shape: %s (%d points), but got %d points\n",tokens[sToken],sToken,yyleng);
         return 4;
     }
+
+    //break if there is a repeated point in the point family (e.g ABA, ABCDEA, e.t.c)
     else if(repeatExists(yytext)) {
         printf("Repeated symbol in \"%s\"\n",yytext);
         return 5;

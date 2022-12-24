@@ -211,7 +211,7 @@ int main(int argc, char*argv[]) {
             FILE *fp = fopen("syntaxTree.dot","w");
             if (fputs(dotString,fp) <= 0) {
                 printf("There was an error with writing .dot file!");
-            };
+            }
             fclose(fp);
 
             /*
@@ -223,9 +223,8 @@ int main(int argc, char*argv[]) {
         }
 /*
     III - Non-terminal symbol is matched and the current production being analyzed exists.
-        Syntax Analysis:
-            Pop the top element from the symbol stack and for each right-hand side symbol,
-            push it to the symbol stack.
+        Pop the top element from the symbol stack and for each right-hand side symbol,
+        push it to the symbol stack.
 */
         else if (isTerminal(cursym) == 0 && (curprod = mapProductionRule(stable,productionExists(stable,cursym,curinsym))) != 0) {
             printf("\tMatched non-terminal: %c\n",cursym);
@@ -240,6 +239,7 @@ int main(int argc, char*argv[]) {
             else {
                 printf("\tCorresponding production rule: %s",prodRule);
             }
+            
             pop(symStack);
 
             //Add a comment before the variable and label assignments for readability
@@ -250,6 +250,7 @@ int main(int argc, char*argv[]) {
             /* Left-hand side of the .dot variable assignment (e.g: A0 -- b0, A0 is lhs) */
             char* lhs = malloc(3);
             strcpy(lhs,"XX");
+
             char *f = malloc(4);
             strncpy(f,front(queue),3);
 
@@ -289,10 +290,9 @@ int main(int argc, char*argv[]) {
             */
             if(strcmp(f,"XXX") != 0 && f[0] == cursym) {
                 //read from memory queue
-                char *str = dequeue(queue);
-                lhs = str + 1; //shift str by 1 byte 
+                char *frontValue = dequeue(queue);
+                lhs = frontValue + 1; //shift str by 1 byte 
             }
-        
             //Assign new variable name if memory is empty
             else if (queueIsEmpty(queue)){ 
                 assignVarName(lhs,0);
@@ -312,7 +312,6 @@ int main(int argc, char*argv[]) {
                 char curprodsym = curprod[strlen(curprod)-i-1]; 
 
                 char* rhs = malloc(3);
-                char* memStr = malloc(4);
                 assignVarName(rhs,isTerminal(curprodsym));
 
                 /* .dot Variable declaration */
@@ -349,6 +348,7 @@ int main(int argc, char*argv[]) {
                     enqueue(queue,str);
                }
             }
+
         }
 
 /*
